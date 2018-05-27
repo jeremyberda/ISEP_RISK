@@ -1,5 +1,7 @@
+import java.awt.*;
 import java.util.ArrayList;
 import edu.princeton.cs.introcs.StdDraw;
+import java.util.Collections;
 
 public class Game {
 
@@ -135,7 +137,7 @@ public class Game {
         listTerritories.add(new Territory(36,listIndia));
         listTerritories.add(new Territory(37,listSiam));
 
-        //OcÈanie
+        //Australie
 
         listTerritories.add(new Territory(38,listIndonesia));
         listTerritories.add(new Territory(39,listWesternAustralia));
@@ -143,8 +145,88 @@ public class Game {
         listTerritories.add(new Territory(41,listNewGuinea));
 
 
+        //ICI FAUDRA AJOUTER FONCTION QUI AJOUTE UNE UNITEE A CHAQUE INSTANCE DE TERRITOIRE
+
+        // ---------------------------------------
 
 
+        //  On liste les territoires de chaque région dans une arraylist
+
+        ArrayList<Territory> territoriesNorthAmerica = new ArrayList<Territory>();
+
+        for (int i=0; i<9;i++) {
+
+            territoriesNorthAmerica.add(listTerritories.get(i));
+        }
+
+        ArrayList<Territory> territoriesSouthAmerica = new ArrayList<Territory>();
+
+        for (int i=9;i<13;i++) {
+
+            territoriesSouthAmerica.add(listTerritories.get(i));
+        }
+
+        ArrayList<Territory> territoriesAfrica = new ArrayList<Territory>();
+
+        for (int i=13;i<19;i++) {
+
+            territoriesAfrica.add(listTerritories.get(i));
+        }
+
+        ArrayList<Territory> territoriesEuropa = new ArrayList<Territory>();
+
+        for (int i=19;i<26;i++) {
+
+            territoriesEuropa.add(listTerritories.get(i));
+        }
+
+        ArrayList<Territory> territoriesAsia = new ArrayList<Territory>();
+
+        for (int i=26;i<38;i++) {
+
+            territoriesAsia.add(listTerritories.get(i));
+        }
+
+        ArrayList<Territory> territoriesAustralia = new ArrayList<Territory>();
+
+        for (int i=38;i<42;i++) {
+
+            territoriesAustralia.add(listTerritories.get(i));
+        }
+
+        //on initialise les régions et on les ajoute dans une liste
+
+        regionsList.add(new Region(0,territoriesNorthAmerica));
+        regionsList.add(new Region(0,territoriesSouthAmerica));
+        regionsList.add(new Region(0,territoriesAfrica));
+        regionsList.add(new Region(0,territoriesEuropa));
+        regionsList.add(new Region(0,territoriesAustralia));
+
+
+
+
+
+
+
+    }
+
+
+    // cette fonction permet de générer aléatoirement les territoires pour chaque joueur
+
+    public void setRandomTerritories() {
+
+        ArrayList<Integer> randomTerritoriesList = new ArrayList<Integer>();
+
+        //On ajoute les territoires de la liste de territoires, à la liste de territoires random à distribuer entre chaque joueur
+
+        for (int i=0;i<listTerritories.size();i++){
+
+            randomTerritoriesList.add(new Integer(i));
+        }
+
+        //Et on mélange la liste
+
+        Collections.shuffle(randomTerritoriesList);
     }
 
 
