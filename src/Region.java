@@ -17,13 +17,35 @@ public class Region {
 
     public boolean isControlledBy(Player player) {
 
-        int bonus = 0;
-
         for (int i = 0; i<this.territoriesOfRegion.size();i++) {
 
-            if (this.territoriesOfRegion.get(i).)
+            if (this.territoriesOfRegion.get(i).getOwner() != player){
+
+                return false;
+            }
         }
 
+        return true;
 
+
+    }
+
+    // getters and setters
+
+
+    public int getRegionID() {
+        return regionID;
+    }
+
+    public void setRegionID(int regionID) {
+        this.regionID = regionID;
+    }
+
+    public ArrayList<Territory> getTerritoriesOfRegion() {
+        return territoriesOfRegion;
+    }
+
+    public void setTerritoriesOfRegion(ArrayList<Territory> territoriesOfRegion) {
+        this.territoriesOfRegion = territoriesOfRegion;
     }
 }

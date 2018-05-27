@@ -21,4 +21,11 @@ public class Territory {
         this.adjacentTerritoriesID = adjacentTerritoriesID;
     }
 
+    public Player getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
 }

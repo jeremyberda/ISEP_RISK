@@ -117,6 +117,8 @@ public class Player {
     public int regionBonus () {
 
         int bonus = 0;
+
+        // A COMPLETER
     }
 
 
