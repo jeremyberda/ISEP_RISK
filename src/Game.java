@@ -8,6 +8,7 @@ public class Game {
     public ArrayList<Player> playersList = new ArrayList<Player>();
     public ArrayList<Territory> listTerritories = new ArrayList<Territory>();
     public ArrayList<Region> regionsList = new ArrayList<Region>();
+    public ArrayList<Player> eliminatedPlayersList= new ArrayList<Player>();
 
     public int playersNumber;
 
