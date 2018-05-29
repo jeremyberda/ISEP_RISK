@@ -9,9 +9,9 @@ public class Territory {
 
 
 
-    public ArrayList<Unity> unitiesList = new ArrayList<Unity>();
+    public ArrayList<Unit> unitiesList = new ArrayList<Unit>();
 
-    ArrayList<Unity> fightUnitiesList = new ArrayList<Unity>();
+    ArrayList<Unit> fightUnitiesList = new ArrayList<Unit>();
 
     private Player owner;
 

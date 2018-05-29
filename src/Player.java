@@ -59,7 +59,7 @@ public class Player {
         this.controlledTerritoriesList.remove(territory);
     }
 
-    // attribut les armées si on est au début de partie, ou pas. Vu qu'on distribue déjà un soldat à l'initialisationpour chaque territoire, ici, on adapte le nombre
+    // attribut les armées si on est au début de partie, ou pas. Vu qu'on distribue déjà un soldat à l'initialisation pour chaque territoire, ici, on adapte le nombre
 
     public void setArmy (boolean beginning) {
 
