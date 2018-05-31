@@ -7,9 +7,11 @@ public class Player {
     private int idPlayer;
     private Color playerColor;
     private int territoriesNumber;
-    private int soldiersNumber;
-    private int canoonsNumber;
-    private int ridersNumber;
+    int numberTerritoriestoAdd;
+    private int troopNumberDeploy;
+    private int soldiersNumberDeploy;
+    private int ridersNumberDeploy;
+    private int cannonsNumberDeploy;
     private int unitNumber;
     private int capturedTerritoriesNumber;
 
@@ -60,40 +62,43 @@ public class Player {
         this.controlledTerritoriesList.remove(territory);
     }
 
-    // attribut les armées si on est au début de partie, ou pas. Vu qu'on distribue déjà un soldat à l'initialisation pour chaque territoire, ici, on adapte le nombre
-
-    public void setArmy (boolean beginning) {
-
-        if (beginning) {
-
-            switch (risk.playersList.size()) {
-
-                case 2:
-                    this.setSoldiersNumber(19);
-                    break;
-
-                case 3:
-                    this.setSoldiersNumber(21);
-                    break;
-
-                case 4:
-                    this.setSoldiersNumber(20);
-                    break;
-
-                case 5:
-                    this.setSoldiersNumber(17);
-                    break;
-
-                case 6:
-                    this.setSoldiersNumber(13);
+    /*
+     * Renvoit le nombre de troupes que le joueur doit recevoir
+     * @param Player player pour lequel on veut savoir le nombre de troupe qu'il obtient au début du tour
+     * @param type type d'apport, 0 début de partie 1 jeu
+     * @return nombre de troupes
+     */
+    public void calculUnitNumberDeploy(boolean begin)
+    {
+        if(begin)//Debut de partie
+        {
+            if(Main.risk.playersList.size() == 2)
+            {
+                this.setTroopNumberDeploy(19);
             }
-
-
+            else if(Main.risk.playersList.size() == 3)
+            {
+                this.setTroopNumberDeploy(21);
+            }
+            else if(Main.risk.playersList.size() == 4)
+            {
+                this.setTroopNumberDeploy(20);
+            }
+            else if(Main.risk.playersList.size() == 5)
+            {
+                this.setTroopNumberDeploy(17);
+            }
+            else
+            {
+                this.setTroopNumberDeploy(13);
+            }
         }
+        else
+        {
 
-        else {
+            this.setTroopNumberDeploy((int) (Math.floor(this.territoriesNumber/3) + this.regionBonus() + this.regionBonus()));
 
-            this.setSoldiersNumber((int) (Math.floor(this.territoriesNumber/3) + this.regionBonus() + this.newTerritoriesBonus()));
+
         }
     }
 
@@ -197,28 +202,37 @@ public class Player {
         this.territoriesNumber = territoriesNumber;
     }
 
-    public int getSoldiersNumber() {
-        return soldiersNumber;
+
+    public int getSoldiersNumberDeploy() {
+        return soldiersNumberDeploy;
     }
 
-    public void setSoldiersNumber(int soldiersNumber) {
-        this.soldiersNumber = soldiersNumber;
+    public void setSoldiersNumberDeploy(int soldiersNumberDeploy) {
+        this.soldiersNumberDeploy = soldiersNumberDeploy;
     }
 
-    public int getCanoonsNumber() {
-        return canoonsNumber;
+    public int getRidersNumberDeploy() {
+        return ridersNumberDeploy;
     }
 
-    public void setCanoonsNumber(int canoonsNumber) {
-        this.canoonsNumber = canoonsNumber;
+    public int getTroopNumberDeploy() {
+        return troopNumberDeploy;
     }
 
-    public int getRidersNumber() {
-        return ridersNumber;
+    public void setTroopNumberDeploy(int troopNumberDeploy) {
+        this.troopNumberDeploy = troopNumberDeploy;
     }
 
-    public void setRidersNumber(int ridersNumber) {
-        this.ridersNumber = ridersNumber;
+    public void setRidersNumberDeploy(int ridersNumberDeploy) {
+        this.ridersNumberDeploy = ridersNumberDeploy;
+    }
+
+    public int getCannonsNumberDeploy() {
+        return cannonsNumberDeploy;
+    }
+
+    public void setCannonsNumberDeploy(int cannonsNumberDeploy) {
+        this.cannonsNumberDeploy = cannonsNumberDeploy;
     }
 
     public ArrayList<Territory> getControlledTerritoriesList() {

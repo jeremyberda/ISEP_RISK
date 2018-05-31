@@ -10,6 +10,9 @@ public class Unit {
     private int movementsPerTour;//nombre de déplacements dispo à chaque tour
     private int diceScore; //score des dÈs de l'unitÈ lors d'une confrontation
     private int movementsNumber; //nombre de déplacements effectués pdt le tour en cours
+        // O>> Soldat
+        // 1 >>Cavalier
+        //2>> Canon
 
     public ArrayList<Territory> listTravelledTerritories = new ArrayList<Territory>();
 

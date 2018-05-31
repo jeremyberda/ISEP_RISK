@@ -10,6 +10,8 @@ public class Game {
     public ArrayList<Region> regionsList = new ArrayList<Region>();
     public ArrayList<Player> eliminatedPlayersList= new ArrayList<Player>();
 
+    ArrayList<Territory> winnerList = new ArrayList<Territory>();
+
     public int playersNumber;
 
     public int tour = 0;
