@@ -7,6 +7,10 @@ public class Territory {
 
     private int[] adjacentTerritoriesID;
 
+    private String nameTerritory;
+
+    ArrayList<Unit> unitsList = new ArrayList<Unit>();
+
 
 
     public ArrayList<Unit> unitiesList = new ArrayList<Unit>();
@@ -16,9 +20,16 @@ public class Territory {
     private Player owner;
 
 
-    public Territory(int territoryID, int[] adjacentTerritoriesID) {
+    public Territory(String nameTerritory, int territoryID, int[] adjacentTerritoriesID) {
+
+        this.nameTerritory= nameTerritory;
         this.territoryID = territoryID;
         this.adjacentTerritoriesID = adjacentTerritoriesID;
+    }
+
+    public void addUnitOnTerritory(Unit unit)
+    {
+        this.unitsList.add(unit);
     }
 
     public Player getOwner() {

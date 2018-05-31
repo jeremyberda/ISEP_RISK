@@ -10,6 +10,7 @@ public class Player {
     private int soldiersNumber;
     private int canoonsNumber;
     private int ridersNumber;
+    private int unitNumber;
     private int controlledTerritoriesNumber;
 
     public ArrayList<Territory> controlledTerritoriesList = new ArrayList<Territory>();
@@ -40,9 +41,9 @@ public class Player {
 
     //Ajoute  1 au nombre de territoires du joueur
 
-    public void addTerritory() {
+    public void addTerritory(int numberTerritoriestoAdd) {
 
-        this.territoriesNumber++;
+        this.territoriesNumber = territoriesNumber + numberTerritoriestoAdd ;
     }
 
     // Ajoute un territoire à la liste de territoires du joueur
