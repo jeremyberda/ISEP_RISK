@@ -11,7 +11,7 @@ public class Player {
     private int canoonsNumber;
     private int ridersNumber;
     private int unitNumber;
-    private int controlledTerritoriesNumber;
+    private int capturedTerritoriesNumber;
 
     public ArrayList<Territory> controlledTerritoriesList = new ArrayList<Territory>();
 
@@ -39,7 +39,7 @@ public class Player {
         }
     }
 
-    //Ajoute  1 au nombre de territoires du joueur
+    //Ajoute un nombre à définir au nombre de territoires du joueur
 
     public void addTerritory(int numberTerritoriestoAdd) {
 
@@ -103,7 +103,7 @@ public class Player {
 
         int bonus = 0;
 
-        for (int i=0; i<this.controlledTerritoriesNumber;i++) {
+        for (int i=0; i<this.capturedTerritoriesNumber;i++) {
             Random chance = new Random();
             int r = chance.nextInt(2);
             bonus = bonus + r;
@@ -113,13 +113,51 @@ public class Player {
         return bonus;
     }
 
-    //bonus de région
+    //bonus de région si un joueur contrôle entièrement le continent
 
     public int regionBonus () {
 
         int bonus = 0;
 
-        // A COMPLETER
+        for (int i =0; i< Main.risk.regionsList.size();i++) {
+
+            if (Main.risk.regionsList.get(i).isControlledBy(this)) {
+
+                if (i==0) { //NorthAmerica
+
+                    bonus = bonus + 4;
+                }
+
+                if (i == 1) {//SouthAmerica
+
+                    bonus = bonus + 2;
+
+                }
+
+                if (i == 2) { //Africa
+
+                    bonus = bonus + 3;
+
+                }
+
+                if (i == 3) { //Europa
+
+                    bonus = bonus + 4;
+                }
+                if (i == 4) { // Asia
+
+                    bonus = bonus + 6;
+                }
+
+                if (i == 5) { // Australia
+
+                    bonus = bonus + 2;
+
+                }
+            }
+        }
+
+        return bonus;
     }
 
 

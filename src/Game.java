@@ -138,7 +138,7 @@ public class Game {
         listTerritories.add(new Territory("Inde",36,listIndia));
         listTerritories.add(new Territory("Siam",37,listSiam));
 
-        //OcÈanie
+        //Australie
 
         listTerritories.add(new Territory("IndonÈsie",38,listIndonesia));
         listTerritories.add(new Territory("Australie de l'Ouest",39,listWesternAustralia));
@@ -198,10 +198,12 @@ public class Game {
         //on initialise les régions et on les ajoute dans une liste
 
         regionsList.add(new Region(0,territoriesNorthAmerica));
-        regionsList.add(new Region(0,territoriesSouthAmerica));
-        regionsList.add(new Region(0,territoriesAfrica));
-        regionsList.add(new Region(0,territoriesEuropa));
-        regionsList.add(new Region(0,territoriesAustralia));
+        regionsList.add(new Region(1,territoriesSouthAmerica));
+        regionsList.add(new Region(2,territoriesAfrica));
+        regionsList.add(new Region(3,territoriesEuropa));
+        regionsList.add(new Region(4,territoriesAsia));
+        regionsList.add(new Region(5,territoriesAustralia));
+
 
 
 
