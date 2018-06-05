@@ -20,6 +20,9 @@ public class Main {
             StdDraw.picture(550 / 2, 600 / 2, "RiskCover.jpg", 540, 590);
 
             // Premier menu (joueurs)
+            Sound music1 = new Sound("MusicMenu.wav");
+            music1.loop();
+
             int joueurs = Menu2.joueurs();
 
             // Tableau de joueurs
@@ -45,10 +48,12 @@ public class Main {
                 Thread.sleep(200);
             }
 
-            System.out.println(Risk.playersList.get(1).getName());
+            System.out.println("ESKE CA MARCHE WESH" + Risk.playersList.get(1).getName());
+
+
 
             Risk.territoriesInitialization();
-            Main.Risk.setRandomTerritories(Main.Risk.playersNumber);
+            //Main.Risk.setRandomTerritories(Main.Risk.playersNumber);
 
             // On lance la map
             StdDraw.clear();

@@ -1,6 +1,8 @@
 import edu.princeton.cs.introcs.StdDraw;
+import edu.princeton.cs.introcs.StdOut;
 
 import java.awt.*;
+import java.net.SocketOption;
 
 public class Rectangle {
 
@@ -17,8 +19,13 @@ public class Rectangle {
         this.halfWidth = halfWidth;
         this.halfHeight = halfHeight;
         this.territory = territory;
-        System.out.println("GET TERRITORY COLOR: " + territory.getOwner().getPlayerColor());
+
+
+        //System.out.println("GET TERRITORY COLOR: " + territory.getOwner().getPlayerColor();
         System.out.println("PB AVANT");
+
+
+
         //System.out.println("GET OWNER : " + this.territory.getOwner());
         this.color = this.territory.getOwner().getPlayerColor();
         System.out.println("PB APRES");

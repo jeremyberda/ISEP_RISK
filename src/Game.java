@@ -166,11 +166,55 @@ public class Game {
         Territory EasternAustralia = new Territory("Australie de l'Est",40,listEasternAustralia);
         Territory NewGuinea = new Territory("Nouvelle-Guinée",41,listNewGuinea);
 
+        listTerritories.addAll(Arrays.asList(Alaska, NorthWestTerritory, Greenland, Quebec, Ontario, Alberta, WesternUnitedStates, EasterUnitedStates,CentralAmerica,Venezuela, Peru, Argentina, Brazil, NorthAfrica, Congo,SouthAfrica, Madagascar, EastAfrica, Egypt, SouthernEurope, NorthernEurope, WesternEurope, GreatBritain, Iceland, Scandinavia, Ukraine, Ural, Siberia, Yakutsk, Irkutsk, Kamchatka, Japan, Mongolia, China, Afghanistan, MiddleEast, India, Siam, Indonesia, WesternAustralia, EasternAustralia, NewGuinea));
 
-        this.playersList.get(0).setPlayerColor(StdDraw.RED);
-        this.playersList.get(1).setPlayerColor(StdDraw.BLUE);
-        Alaska.setOwner(this.playersList.get(0));
-        Alberta.setOwner(this.playersList.get(1));
+
+        ArrayList<Integer> randomTerritoriesList = new ArrayList<Integer>();
+
+        //On ajoute les territoires de la liste de territoires, à la liste de territoires random à distribuer entre chaque joueur
+
+        for (int i=0;i<listTerritories.size();i++){
+
+            randomTerritoriesList.add(new Integer(i));
+            System.out.print(i);
+        }
+
+        //Main.Risk.listTerritories.get(i).getTerritoryID();
+
+
+        //Et on mélange la liste
+
+        Collections.shuffle(randomTerritoriesList);
+
+        int indexPlayer = 0;
+
+        System.out.println("TAILLE LISTE JOUEURS TAHU : " + this.playersList.size());
+
+        for (int i=0;i<listTerritories.size();i++){
+
+            System.out.println("TEST AVANT");
+            this.listTerritories.get(randomTerritoriesList.get(i)).setOwner(this.playersList.get(indexPlayer)); // on définit le propriétaire
+            System.out.println("TEST APRES");
+            System.out.println("JOUEUR DU TER : " + this.listTerritories.get(randomTerritoriesList.get(i)).getOwner().getPlayerColor());
+
+            this.playersList.get(indexPlayer).addTerritory(1); //on ajoute un territoire à sa liste de territoires qu'il possède
+
+            indexPlayer++;
+
+            // Si l'index des joueurs est égale à la longueur de la liste des joueurs (donc au nombre de joueurs), on remet l'index à 0 pour continuer à distribuer les territoires aléatoirement et au même nombre pour chacun
+
+            if (indexPlayer == this.playersList.size()) {
+
+                indexPlayer = 0;
+            }
+
+        }
+
+
+        //this.playersList.get(0).setPlayerColor(StdDraw.RED);
+        //this.playersList.get(1).setPlayerColor(StdDraw.BLUE);
+        //Alaska.setOwner(this.playersList.get(0));
+        //Alberta.setOwner(this.playersList.get(1));
         //Japan.setOwner(this.playersList.get(0));
 
         //On associe les rectangles de la MAP à leur territoire
@@ -179,6 +223,7 @@ public class Game {
 
         Rectangle rectAlaska = new Rectangle(65,515,32,17, Alaska);
         Rectangle rectNorthWestTerritory = new Rectangle(170,525,32,17, NorthWestTerritory);
+        System.out.println("CA PASSE ICI?");
         Rectangle rectGreenland = new Rectangle(365,555,32,17, Greenland);
         Rectangle rectQuebec = new Rectangle(300,462,32,17, Quebec);
         Rectangle rectOntario = new Rectangle(225,462,32,17, Ontario);
@@ -236,7 +281,7 @@ public class Game {
         Rectangle rectNewGuinea = new Rectangle(970,190,32,17, NewGuinea);
 
 
-        listTerritories.addAll(Arrays.asList(Alaska, NorthWestTerritory, Greenland, Quebec, Ontario, Alberta, WesternUnitedStates, EasterUnitedStates,CentralAmerica,Venezuela, Peru, Argentina, Brazil, NorthAfrica, Congo,SouthAfrica, Madagascar, EastAfrica, Egypt, SouthernEurope, NorthernEurope, WesternEurope, GreatBritain, Iceland, Scandinavia, Ukraine, Ural, Siberia, Yakutsk, Irkutsk, Kamchatka, Japan, Mongolia, China, Afghanistan, MiddleEast, India, Siam, Indonesia, WesternAustralia, EasternAustralia, NewGuinea));
+        //listTerritories.addAll(Arrays.asList(Alaska, NorthWestTerritory, Greenland, Quebec, Ontario, Alberta, WesternUnitedStates, EasterUnitedStates,CentralAmerica,Venezuela, Peru, Argentina, Brazil, NorthAfrica, Congo,SouthAfrica, Madagascar, EastAfrica, Egypt, SouthernEurope, NorthernEurope, WesternEurope, GreatBritain, Iceland, Scandinavia, Ukraine, Ural, Siberia, Yakutsk, Irkutsk, Kamchatka, Japan, Mongolia, China, Afghanistan, MiddleEast, India, Siam, Indonesia, WesternAustralia, EasternAustralia, NewGuinea));
         listRectangles.addAll(Arrays.asList(rectAlaska,rectNorthWestTerritory,rectGreenland,rectQuebec,rectOntario,rectAlberta,rectWesternUnitedStates, rectEasterUnitedStates, rectCentralAmerica, rectVenezuela, rectPeru,rectArgentina,rectBrazil,rectNorthAfrica,rectCongo,rectSouthAfrica,rectMadagascar,rectEastAfrica, rectEgypt,rectSouthernEurope,rectNorthernEurope,rectWesternEurope,rectGreatBritain,rectIceland,rectScandinavia,rectUkraine,rectUkraine,rectUral,rectSiberia,rectYakutsk,rectIrkutsk,rectKamchatka,rectJapan,rectMongolia,rectChina,rectAfghanistan,rectMiddleEast,rectIndia,rectSiam,rectIndonesia,rectWesternAustralia,rectEasternAustralia,rectNewGuinea));
 
         for (int i=0;i<listRectangles.size();i++) {
@@ -383,7 +428,7 @@ public class Game {
         this.playersNumber = playersNumber;
     }
 
-    public void setRandomTerritories(int playersNumber) {
+    /*public void setRandomTerritories(int playersNumber) {
 
         ArrayList<Integer> randomTerritoriesList = new ArrayList<Integer>();
 
@@ -404,12 +449,13 @@ public class Game {
 
         int indexPlayer = 0;
 
-        System.out.println("TAILLE LISTE JOUEURS : " + this.playersList.size());
+        System.out.println("TAILLE LISTE JOUEURS TAHU : " + this.playersList.size());
 
         for (int i=0;i<listTerritories.size();i++){
 
+            System.out.println("TEST AVANT");
             this.listTerritories.get(randomTerritoriesList.get(i)).setOwner(this.playersList.get(indexPlayer)); // on définit le propriétaire
-
+            System.out.println("TEST APRES");
             System.out.println("JOUEUR DU TER : " + this.listTerritories.get(randomTerritoriesList.get(i)).getOwner().getPlayerColor());
 
             this.playersList.get(indexPlayer).addTerritory(1); //on ajoute un territoire à sa liste de territoires qu'il possède
@@ -418,12 +464,12 @@ public class Game {
 
             // Si l'index des joueurs est égale à la longueur de la liste des joueurs (donc au nombre de joueurs), on remet l'index à 0 pour continuer à distribuer les territoires aléatoirement et au même nombre pour chacun
 
-            if (indexPlayer== this.playersList.size()) {
+            if (indexPlayer == this.playersList.size()) {
 
                 indexPlayer = 0;
             }
 
-        }
+        }*/
 
 
 
@@ -435,4 +481,4 @@ public class Game {
 
 
 
-}
+

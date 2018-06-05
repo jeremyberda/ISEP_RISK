@@ -39,7 +39,7 @@ public class Map {
         }
 
         // AMERIQUE DU NORD
-
+        StdDraw.setPenColor(Color.black);
         StdDraw.text(130,575, "AmÈrique du Nord");
 
 
@@ -57,8 +57,8 @@ public class Map {
 
         // AMERIQUE DU SUD
 
-        StdDraw.text(160,175, "Amérique");
-        StdDraw.text(165,153, "du Sud");
+        StdDraw.text(340,72, "Amérique");
+        StdDraw.text(340,50, "du Sud");
 
         /*StdDraw.filledRectangle(255,270,32,17); //Venezuela
         StdDraw.filledRectangle(250,190,32,17); //PÈrou
@@ -179,6 +179,81 @@ public class Map {
         StdDraw.text(1160,253,"-");
         StdDraw.square(1160,255,10);
 
+
+        StdDraw.rectangle(120,90,105,75);//Gros rectangle en bas ‡ gauche
+
+        StdDraw.rectangle(120,140,105,25);
+        StdDraw.setFont(fontConfirmer);
+        StdDraw.text(120, 150, "Joueur X");
+        StdDraw.text(120, 130, "Solde : X");
+
+        StdDraw.setFont(fontInterface);
+        StdDraw.text(50,103,"Soldat");
+        StdDraw.text(120,103,"Cavalier");
+        StdDraw.text(190,103,"Canon");
+
+        StdDraw.rectangle(50, 80, 35,35);//Partie Soldat
+        StdDraw.setFont(fontSigns);
+        StdDraw.square(27.5, 57.5, 7.5);
+        StdDraw.text(26.5,54,"+");
+        StdDraw.square(72.5, 57.5, 7.5);
+        StdDraw.text(72.5, 56.5,"-");
+
+        StdDraw.rectangle(120,80, 35,35);//Partie Cavalier
+        StdDraw.setFont(fontSigns);
+        StdDraw.square(97.5, 57.5, 7.5);
+        StdDraw.text(96.5,54,"+");
+        StdDraw.square(142.5, 57.5, 7.5);
+        StdDraw.text(142.5, 56.5,"-");
+
+        StdDraw.rectangle(190, 80, 35,35);//Partie Canon
+        StdDraw.setFont(fontSigns);
+        StdDraw.square(167.5, 57.5, 7.5);
+        StdDraw.text(166.5,54,"+");
+        StdDraw.square(212.5, 57.5, 7.5);
+        StdDraw.text(212.5, 56.5,"-");
+
+        StdDraw.rectangle(120,30,105,15);
+        StdDraw.setFont(fontConfirmer);
+        StdDraw.text(120,30, "Convertir");
+
+        /*StdDraw.rectangle(120,90,105,75);//Gros rectangle en bas ‡ gauche
+
+        StdDraw.rectangle(120,140,105,25);
+        StdDraw.setFont(fontConfirmer);
+        StdDraw.text(120, 150, "Territoire X");
+        StdDraw.setFont(fontInterface);
+        StdDraw.text(120, 130, "So : X / Cv : X / Ca : X");
+
+        StdDraw.setFont(fontInterface);
+        StdDraw.text(50,103,"Soldat");
+        StdDraw.text(120,103,"Cavalier");
+        StdDraw.text(190,103,"Canon");
+
+        StdDraw.rectangle(50, 80, 35,35);//Partie Soldat
+        StdDraw.setFont(fontSigns);
+        StdDraw.square(27.5, 57.5, 7.5);
+        StdDraw.text(26.5,54,"+");
+        StdDraw.square(72.5, 57.5, 7.5);
+        StdDraw.text(72.5, 56.5,"-");
+
+        StdDraw.rectangle(120,80, 35,35);//Partie Cavalier
+        StdDraw.setFont(fontSigns);
+        StdDraw.square(97.5, 57.5, 7.5);
+        StdDraw.text(96.5,54,"+");
+        StdDraw.square(142.5, 57.5, 7.5);
+        StdDraw.text(142.5, 56.5,"-");
+
+        StdDraw.rectangle(190, 80, 35,35);//Partie Canon
+        StdDraw.setFont(fontSigns);
+        StdDraw.square(167.5, 57.5, 7.5);
+        StdDraw.text(166.5,54,"+");
+        StdDraw.square(212.5, 57.5, 7.5);
+        StdDraw.text(212.5, 56.5,"-");
+
+        StdDraw.rectangle(120,30,105,15);
+        StdDraw.setFont(fontConfirmer);
+        StdDraw.text(120,30, "Placer");*/
 
 
         //BOUTONS PREVISIONS
@@ -513,12 +588,112 @@ public class Map {
                     System.out.println("ok");
                 }
             }
+
+            if (a > 1009 && a < 1181 && b > 165 && b < 205){//Bouton Phase suivante
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+
+            //BOUTONS INTERFACE CONVERSION RENFORTS
+
+            if (a > 19 && a < 36 && b > 49 && b < 66){//Bouton + Soldat
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 64 && a < 81 && b > 49 && b < 66){//Bouton - Soldat
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 89 && a < 106 && b > 49 && b < 66){//Bouton + Cavalier
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 134 && a < 151 && b > 49 && b < 66){//Bouton - Cavalier
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 159 && a < 176 && b > 49 && b < 66){//Bouton + Canon
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 204 && a < 221 && b > 49 && b < 66){//Bouton - Canon
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 14 && a < 226 && b > 14 && b < 46){//Bouton Confirmer
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            /*//BOUTONS INTERFACE PLACER RENFORTS
+
+            if (a > 19 && a < 36 && b > 49 && b < 66){//Bouton + Soldat
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 64 && a < 81 && b > 49 && b < 66){//Bouton - Soldat
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 89 && a < 106 && b > 49 && b < 66){//Bouton + Cavalier
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 134 && a < 151 && b > 49 && b < 66){//Bouton - Cavalier
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 159 && a < 176 && b > 49 && b < 66){//Bouton + Canon
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 204 && a < 221 && b > 49 && b < 66){//Bouton - Canon
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            if (a > 14 && a < 226 && b > 14 && b < 46){//Bouton Placer
+                if (StdDraw.isMousePressed()) {
+                    System.out.println("ok");
+                }
+            }
+
+            */
+
+            /*StdDraw.setFont(fontVictoire);
+            StdDraw.text(600,310,"Victoire Joueur X");*/
+
+
         }
     }
 
 
-    public static void main (String[] args){
 
-    }
 
 }
