@@ -1,12 +1,19 @@
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Map {
 
     public final static int X_MAX = 1200;
     public final static int Y_MAX = 620;
     public final static float WIDTH = 1f;
+
+    private ArrayList<Rectangle> rectangles;
+
+    public Map(ArrayList<Rectangle> rectangles) {
+        this.rectangles = rectangles;
+    }
 
     public static void dessinerMap() {
         StdDraw.setCanvasSize(1200,620); // Taille fenÍtre
@@ -18,35 +25,45 @@ public class Map {
         Font fontRegionsNames = new Font("Baskerville Old Face",Font.BOLD, 23);//Police pour les noms de rÈgions
 
         StdDraw.setFont(fontRegionsNames);//On dÈfinit la police comme Ètant xxx
+
+        System.out.println("DESSINER MAP");
     }
 
-    public static void dessinerCercles() {
+    public void dessinerCercles() {
+
+        System.out.println("RECT SIZE DESSINER CERCLES : " + this.rectangles.size());
+
+        for (int i = 0; i < this.rectangles.size(); i++) {
+            System.out.println("ICI");
+            this.rectangles.get(i).DrawRectangle();
+        }
 
         // AMERIQUE DU NORD
 
         StdDraw.text(130,575, "AmÈrique du Nord");
 
-        StdDraw.filledRectangle(65,515,32,17); //Alaska
-        StdDraw.filledRectangle(170,525,32,17); //Territoire du Nord-Ouest
+
+        //StdDraw.filledRectangle(65,515,32,17); //Alaska
+        /*StdDraw.filledRectangle(170,525,32,17); //Territoire du Nord-Ouest
         StdDraw.filledRectangle(365,555,32,17); //Groenland
         StdDraw.filledRectangle(300,462,32,17); //QuÈbec
         StdDraw.filledRectangle(225,462,32, 17); //Ontario
         StdDraw.filledRectangle(153,470,32,17); //Alberta
         StdDraw.filledRectangle(160,410,32,17); //Etats-Unis de l'Ouest
         StdDraw.filledRectangle(240,382,32,17); //Etats-Unis de l'Est
-        StdDraw.filledRectangle(175,320,32,17); //Amerique Centrale
+        StdDraw.filledRectangle(175,320,32,17); //Amerique Centrale*/
 
 
 
         // AMERIQUE DU SUD
 
-        StdDraw.text(160,175, "AmÈrique");
+        StdDraw.text(160,175, "Amérique");
         StdDraw.text(165,153, "du Sud");
 
-        StdDraw.filledRectangle(255,270,32,17); //Venezuela
+        /*StdDraw.filledRectangle(255,270,32,17); //Venezuela
         StdDraw.filledRectangle(250,190,32,17); //PÈrou
         StdDraw.filledRectangle(270,115,32,17); //Argentine
-        StdDraw.filledRectangle(330,210,32,17); //BrÈsil
+        StdDraw.filledRectangle(330,210,32,17); //BrÈsil*/
 
 
 
@@ -54,7 +71,9 @@ public class Map {
 
         StdDraw.text(470,130, "Afrique");
 
-        StdDraw.filledRectangle(480,230,32,17); //Afrique du Nord
+
+
+        /*StdDraw.filledRectangle(480,230,32,17); //Afrique du Nord
         StdDraw.filledRectangle(562,152,32,17); //Congo
         StdDraw.filledRectangle(570,85,32,17); //Afrique du Sud
         StdDraw.filledRectangle(670,65,32,17); //Madagascar
@@ -101,7 +120,7 @@ public class Map {
         StdDraw.filledRectangle(870,167,32,17); //IndonÈsie
         StdDraw.filledRectangle(910,70,32,17); //Australie de l'Ouest
         StdDraw.filledRectangle(1010,100,32,17); //Australie de l'Est
-        StdDraw.filledRectangle(970,190,32,17); //Nouvelle-GuinÈe
+        StdDraw.filledRectangle(970,190,32,17); //Nouvelle-GuinÈe*/
 
 
         //Interface de gestion de jeu

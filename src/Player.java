@@ -17,7 +17,7 @@ public class Player {
 
     public ArrayList<Territory> controlledTerritoriesList = new ArrayList<Territory>();
 
-    private Game risk = Main.risk;
+    private Game risk = Main.Risk;
 
     // Constructor
 
@@ -72,19 +72,19 @@ public class Player {
     {
         if(begin)//Debut de partie
         {
-            if(Main.risk.playersList.size() == 2)
+            if(Main.Risk.playersList.size() == 2)
             {
                 this.setTroopNumberDeploy(19);
             }
-            else if(Main.risk.playersList.size() == 3)
+            else if(Main.Risk.playersList.size() == 3)
             {
                 this.setTroopNumberDeploy(21);
             }
-            else if(Main.risk.playersList.size() == 4)
+            else if(Main.Risk.playersList.size() == 4)
             {
                 this.setTroopNumberDeploy(20);
             }
-            else if(Main.risk.playersList.size() == 5)
+            else if(Main.Risk.playersList.size() == 5)
             {
                 this.setTroopNumberDeploy(17);
             }
@@ -124,9 +124,9 @@ public class Player {
 
         int bonus = 0;
 
-        for (int i =0; i< Main.risk.regionsList.size();i++) {
+        for (int i =0; i< Main.Risk.regionsList.size();i++) {
 
-            if (Main.risk.regionsList.get(i).isControlledBy(this)) {
+            if (Main.Risk.regionsList.get(i).isControlledBy(this)) {
 
                 if (i==0) { //NorthAmerica
 
@@ -141,7 +141,7 @@ public class Player {
 
                 if (i == 2) { //Africa
 
-                    bonus = bonus + 3;
+                    bonus += 3;
 
                 }
 

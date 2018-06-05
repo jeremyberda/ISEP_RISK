@@ -14,9 +14,7 @@ public class Territory {
 
     private String[] adjacentTerritories;
 
-    private String nameTerritory;
-
-
+    public String nameTerritory;
 
     public ArrayList<Unit> unitiesList = new ArrayList<Unit>();
 
@@ -354,7 +352,7 @@ public class Territory {
 
 
         }
-        Main.risk.winnerList = winnerList;
+        Main.Risk.winnerList = winnerList;
 
 
     }

@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.util.ArrayList;
 import edu.princeton.cs.introcs.StdDraw;
+
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Game {
@@ -12,6 +14,8 @@ public class Game {
 
     ArrayList<Territory> winnerList = new ArrayList<Territory>();
 
+    public ArrayList<Rectangle> listRectangles = new ArrayList<Rectangle>();
+
     public int playersNumber;
 
     public int tour = 0;
@@ -22,7 +26,17 @@ public class Game {
 
     // fonction qui initialise les territoires
 
+    public ArrayList<Player> getPlayersList() {
+        return playersList;
+    }
+
+    public void setPlayersList(ArrayList<Player> playersList) {
+        this.playersList = playersList;
+    }
+
     public void territoriesInitialization() {
+
+        System.out.println("GAME OU ESTU ");
 
         // LISTES DES ID DES TERRITOIRES ADJACENTS
 
@@ -62,7 +76,7 @@ public class Game {
 
         //Asie
         int[] listUral = {25, 27, 33, 34};
-        int[] listSerbia = {26, 28, 29, 32, 33};
+        int[] listSiberia = {26, 28, 29, 32, 33};
         int[] listIrkutsk = {27, 29, 30, 32};
         int[] listYakutsk = {27, 28, 30};
         int[] listKamchatka = {0, 28, 29, 31, 32};
@@ -87,9 +101,151 @@ public class Game {
 
         // LISTE DES TERRITOIRES
 
-        //AmÈrique du Nord
 
-        listTerritories.add(new Territory("Alaska",0,listAlaska));
+        System.out.println("BOB : " + this.playersList.get(0).getName());
+
+        // Amérique du Nord
+
+        Territory Alaska = new Territory("Alaska",0,listAlaska);
+        Territory NorthWestTerritory = new Territory("Territoires du N-O",1,listNorthWestTerritory);
+        Territory Greenland = new Territory("Groenland",2,listGreenland);
+        Territory Quebec = new Territory("Quebec",3,listQuebec);
+        Territory Ontario = new Territory("Ontario",4,listOntario);
+        Territory Alberta = new Territory("Alberta",5,listAlberta);
+        Territory WesternUnitedStates = new Territory("E-U de l'Ouest",6,listWesternUnitedStates);
+        Territory EasterUnitedStates = new Territory("E-U de l'Est",7,listEasternUnitedStates);
+        Territory CentralAmerica = new Territory("Amérique Centrale",8,listCentralAmerica);
+
+        // Amérique du Sud
+
+        Territory Venezuela = new Territory("Venezuela",9,listVenezuela);
+        Territory Peru = new Territory("Pérou",10,listPeru);
+        Territory Argentina = new Territory("Argentine",11,listArgentina);
+        Territory Brazil = new Territory("Brésil",12,listBrazil);
+
+        //Afrique
+
+        Territory NorthAfrica = new Territory("Afrique du Nord",13,listNorthAfrica);
+        Territory Congo = new Territory("Congo",14,listCongo);
+        Territory SouthAfrica = new Territory("Afrique du Sud",15,listSouthAfrica);
+        Territory Madagascar = new Territory("Madagascar",16,listMadagascar);
+        Territory EastAfrica = new Territory("Afrique de l'Est",17,listEastAfrica);
+        Territory Egypt = new Territory("Egypte",18,listEgypt);
+
+        //Europe
+
+        Territory SouthernEurope = new Territory("Europe du Sud",19,listSouthernEurope);
+        Territory NorthernEurope = new Territory("Europe du Nord",20,listNorthernEurope);
+        Territory WesternEurope = new Territory("Europe de l'Ouest",21,listWesternEurope);
+        Territory GreatBritain = new Territory("Grande-Bretagne",22,listGreatBritain);
+        Territory Iceland = new Territory("Islande",23,listIceland);
+        Territory Scandinavia = new Territory("Scandinavie",24,listScandinavia);
+        Territory Ukraine = new Territory("Ukraine",25,listUkraine);
+
+        //Asie
+
+
+        Territory Ural = new Territory("Oural",26,listUral);
+        Territory Siberia = new Territory("Sibérie",27,listSiberia);
+        Territory Irkutsk = new Territory("Tchita",28,listIrkutsk);
+        Territory Yakutsk = new Territory("Yakoutie",29,listYakutsk);
+        Territory Kamchatka = new Territory("Kamchatka",30,listKamchatka);
+        Territory Japan = new Territory("Japon",31,listJapan);
+        Territory Mongolia = new Territory("Mongolie",32,listMongolia);
+        Territory China = new Territory("Chine",33,listChina);
+        Territory Afghanistan = new Territory("Afghanistan",34,listAfghanistan);
+        Territory MiddleEast = new Territory("Moyen-Orient",35,listMiddleEast);
+        Territory India = new Territory("India",36,listIndia);
+        Territory Siam = new Territory("Siam",37,listSiam);
+
+        //Australie
+
+
+        Territory Indonesia = new Territory("Indonésie",38,listIndonesia);
+        Territory WesternAustralia = new Territory("Australie de l'Ouest",39,listWesternAustralia);
+        Territory EasternAustralia = new Territory("Australie de l'Est",40,listEasternAustralia);
+        Territory NewGuinea = new Territory("Nouvelle-Guinée",41,listNewGuinea);
+
+
+        this.playersList.get(0).setPlayerColor(StdDraw.RED);
+        this.playersList.get(1).setPlayerColor(StdDraw.BLUE);
+        Alaska.setOwner(this.playersList.get(0));
+        Alberta.setOwner(this.playersList.get(1));
+        //Japan.setOwner(this.playersList.get(0));
+
+        //On associe les rectangles de la MAP à leur territoire
+
+        //Amérique du Nord
+
+        Rectangle rectAlaska = new Rectangle(65,515,32,17, Alaska);
+        Rectangle rectNorthWestTerritory = new Rectangle(170,525,32,17, NorthWestTerritory);
+        Rectangle rectGreenland = new Rectangle(365,555,32,17, Greenland);
+        Rectangle rectQuebec = new Rectangle(300,462,32,17, Quebec);
+        Rectangle rectOntario = new Rectangle(225,462,32,17, Ontario);
+        Rectangle rectAlberta = new Rectangle(153,470,32,17, Alberta);
+        Rectangle rectWesternUnitedStates = new Rectangle(160,410,32,17, WesternUnitedStates);
+        Rectangle rectEasterUnitedStates = new Rectangle(240,382,32,17,EasterUnitedStates);
+        Rectangle rectCentralAmerica = new Rectangle(175,320,32,17, CentralAmerica);
+
+        //Amérique du Sud
+
+        Rectangle rectVenezuela = new Rectangle(255,270,32,17, Venezuela);
+        Rectangle rectPeru = new Rectangle(250,190,32,17, Peru);
+        Rectangle rectArgentina = new Rectangle(270,115,32,17, Argentina);
+        Rectangle rectBrazil = new Rectangle(330,210,32,17, Brazil);
+
+        //Afrique
+
+        Rectangle rectNorthAfrica = new Rectangle(480,230,32,17, NorthAfrica);
+        Rectangle rectCongo = new Rectangle(562,152,32,17, Congo);
+        Rectangle rectSouthAfrica = new Rectangle(570,85,32,17, SouthAfrica);
+        Rectangle rectMadagascar = new Rectangle(670,65,32,17, Madagascar);
+        Rectangle rectEastAfrica = new Rectangle(630,190,32,17, EastAfrica);
+        Rectangle rectEgypt = new Rectangle(585,258,32,17, Egypt);
+
+        //Europe
+
+        Rectangle rectSouthernEurope = new Rectangle(532,360,32,17, SouthernEurope);
+        Rectangle rectNorthernEurope = new Rectangle(530,407,32,17, NorthernEurope);
+        Rectangle rectWesternEurope = new Rectangle(445,325,32,17, WesternEurope);
+        Rectangle rectGreatBritain = new Rectangle(417,414,32,17, GreatBritain);
+        Rectangle rectIceland = new Rectangle(460,500,32,17, Iceland);
+        Rectangle rectScandinavia = new Rectangle(535,495,32,17, Scandinavia);
+        Rectangle rectUkraine = new Rectangle(630,460,32,17, Ukraine);
+
+        //Asie
+
+        Rectangle rectUral = new Rectangle(740,470,32,17, Ural);
+        Rectangle rectSiberia = new Rectangle(780,520,32,17, Siberia);
+        Rectangle rectYakutsk = new Rectangle(870,545,32,17, Yakutsk);
+        Rectangle rectIrkutsk = new Rectangle(855,460,32,17, Irkutsk);
+        Rectangle rectKamchatka = new Rectangle(960,535,32,17, Kamchatka);
+        Rectangle rectJapan = new Rectangle(970,385,32,17, Japan);
+        Rectangle rectMongolia = new Rectangle(860,405,32,17, Mongolia);
+        Rectangle rectChina = new Rectangle(833,340,32,17, China);
+        Rectangle rectAfghanistan = new Rectangle(720,390,32,17, Afghanistan);
+        Rectangle rectMiddleEast = new Rectangle(660,310,32,17, MiddleEast);
+        Rectangle rectIndia = new Rectangle(780,300,32,17, India);
+        Rectangle rectSiam = new Rectangle(860,260,32,17, Siam);
+
+        //Australie
+
+        Rectangle rectIndonesia = new Rectangle(870,167,32,17, Indonesia);
+        Rectangle rectWesternAustralia = new Rectangle(910,70,32,17, WesternAustralia);
+        Rectangle rectEasternAustralia = new Rectangle(1010,100,32,17, EasternAustralia);
+        Rectangle rectNewGuinea = new Rectangle(970,190,32,17, NewGuinea);
+
+
+        listTerritories.addAll(Arrays.asList(Alaska, NorthWestTerritory, Greenland, Quebec, Ontario, Alberta, WesternUnitedStates, EasterUnitedStates,CentralAmerica,Venezuela, Peru, Argentina, Brazil, NorthAfrica, Congo,SouthAfrica, Madagascar, EastAfrica, Egypt, SouthernEurope, NorthernEurope, WesternEurope, GreatBritain, Iceland, Scandinavia, Ukraine, Ural, Siberia, Yakutsk, Irkutsk, Kamchatka, Japan, Mongolia, China, Afghanistan, MiddleEast, India, Siam, Indonesia, WesternAustralia, EasternAustralia, NewGuinea));
+        listRectangles.addAll(Arrays.asList(rectAlaska,rectNorthWestTerritory,rectGreenland,rectQuebec,rectOntario,rectAlberta,rectWesternUnitedStates, rectEasterUnitedStates, rectCentralAmerica, rectVenezuela, rectPeru,rectArgentina,rectBrazil,rectNorthAfrica,rectCongo,rectSouthAfrica,rectMadagascar,rectEastAfrica, rectEgypt,rectSouthernEurope,rectNorthernEurope,rectWesternEurope,rectGreatBritain,rectIceland,rectScandinavia,rectUkraine,rectUkraine,rectUral,rectSiberia,rectYakutsk,rectIrkutsk,rectKamchatka,rectJapan,rectMongolia,rectChina,rectAfghanistan,rectMiddleEast,rectIndia,rectSiam,rectIndonesia,rectWesternAustralia,rectEasternAustralia,rectNewGuinea));
+
+        for (int i=0;i<listRectangles.size();i++) {
+
+            listRectangles.get(i).DrawRectangle();
+        }
+        System.out.println("LEN Rect : " + this.listRectangles.size());
+
+        /*listTerritories.add(new Territory("Alaska",0,listAlaska));
         listTerritories.add(new Territory("Territoires du N-O",1,listNorthWestTerritory));
         listTerritories.add(new Territory("Groenland",2,listGreenland));
         listTerritories.add(new Territory("QuÈbec",3,listQuebec));
@@ -137,6 +293,7 @@ public class Game {
         listTerritories.add(new Territory("Chine",33,listChina));
         listTerritories.add(new Territory("Afghanistan",34,listAfghanistan));
         listTerritories.add(new Territory("Moyen-Orient",35,listMiddleEast));
+
         listTerritories.add(new Territory("Inde",36,listIndia));
         listTerritories.add(new Territory("Siam",37,listSiam));
 
@@ -145,7 +302,7 @@ public class Game {
         listTerritories.add(new Territory("IndonÈsie",38,listIndonesia));
         listTerritories.add(new Territory("Australie de l'Ouest",39,listWesternAustralia));
         listTerritories.add(new Territory("Australie de l'Est",40,listEasternAustralia));
-        listTerritories.add(new Territory("Nouvelle-GuinÈe",41,listNewGuinea));
+        listTerritories.add(new Territory("Nouvelle-GuinÈe",41,listNewGuinea));*/
 
 
         //ICI FAUDRA AJOUTER FONCTION QUI AJOUTE UNE UNITEE A CHAQUE INSTANCE DE TERRITOIRE
@@ -218,6 +375,14 @@ public class Game {
 
     // cette fonction permet de générer aléatoirement les territoires pour chaque joueur
 
+    public int getPlayersNumber() {
+        return playersNumber;
+    }
+
+    public void setPlayersNumber(int playersNumber) {
+        this.playersNumber = playersNumber;
+    }
+
     public void setRandomTerritories(int playersNumber) {
 
         ArrayList<Integer> randomTerritoriesList = new ArrayList<Integer>();
@@ -227,7 +392,11 @@ public class Game {
         for (int i=0;i<listTerritories.size();i++){
 
             randomTerritoriesList.add(new Integer(i));
+            System.out.print(i);
         }
+
+        //Main.Risk.listTerritories.get(i).getTerritoryID();
+
 
         //Et on mélange la liste
 
@@ -235,9 +404,13 @@ public class Game {
 
         int indexPlayer = 0;
 
+        System.out.println("TAILLE LISTE JOUEURS : " + this.playersList.size());
+
         for (int i=0;i<listTerritories.size();i++){
 
             this.listTerritories.get(randomTerritoriesList.get(i)).setOwner(this.playersList.get(indexPlayer)); // on définit le propriétaire
+
+            System.out.println("JOUEUR DU TER : " + this.listTerritories.get(randomTerritoriesList.get(i)).getOwner().getPlayerColor());
 
             this.playersList.get(indexPlayer).addTerritory(1); //on ajoute un territoire à sa liste de territoires qu'il possède
 
@@ -251,6 +424,10 @@ public class Game {
             }
 
         }
+
+
+
+
 
 
     }

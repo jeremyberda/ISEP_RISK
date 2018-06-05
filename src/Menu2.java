@@ -1,4 +1,5 @@
 import edu.princeton.cs.introcs.StdDraw;
+import java.util.ArrayList;
 
 import java.awt.*;
 
@@ -7,9 +8,13 @@ public class Menu2 {
     private final static int X_MAX = 550;
     private final static int Y_MAX = 600;
     private final static float WIDTH = 1f;
+    //Game risk = Main.risk;
 
 
-    static int joueurs() {
+    public static int joueurs() {
+
+        ;
+
         Font font = new Font("Baskerville Old Face", Font.BOLD, 30);
         StdDraw.setFont(font);
         StdDraw.setPenRadius(0.008);
@@ -41,52 +46,58 @@ public class Menu2 {
             if (a > 29 && a < 171 && b > 259 && b < 301) {
                 if (StdDraw.isMousePressed()) {
                     System.out.println("1 joueur");
-                    return 1;
+                    Main.Risk.setPlayersNumber(1);
+                    return Main.Risk.playersNumber;
                 }
             }
             // test bouton 2
             if (a > 29 && a < 171 && b > 179 && b < 221) {
                 if (StdDraw.isMousePressed()) {
                     System.out.println("2 joueurs");
-                    return 2;
+                    Main.Risk.setPlayersNumber(2);
+                    return Main.Risk.playersNumber;
                 }
             }
             // test bouton 3
             if (a > 29 && a < 171 && b > 99 && b < 141) {
                 if (StdDraw.isMousePressed()) {
                     System.out.println("3 joueurs");
-                    return 3;
+                    Main.Risk.setPlayersNumber(3);
+                    return Main.Risk.playersNumber;
                 }
             }
             // test bouton 4
             if (a > 379 && a < 521 && b > 259 && b < 301) {
                 if (StdDraw.isMousePressed()) {
                     System.out.println("4 joueurs");
-                    return 4;
+                    Main.Risk.setPlayersNumber(4);
+                    return Main.Risk.playersNumber;
                 }
             }
             // test bouton 5
             if (a > 379 && a < 521 && b > 179 && b < 221) {
                 if (StdDraw.isMousePressed()) {
                     System.out.println("5 joueurs");
-                    return 5;
+                    Main.Risk.setPlayersNumber(5);
+                    return Main.Risk.playersNumber;
                 }
             }
             // test bouton 6
             if (a > 379 && a < 521 && b > 99 && b < 141) {
                 if (StdDraw.isMousePressed()) {
                     System.out.println("6 joueurs");
-                    return 6;
+                    Main.Risk.setPlayersNumber(6);
+                    return Main.Risk.playersNumber;
                 }
             }
         }
     }
 
-    // Assigne une couleur ‡ un joueur
+    // Assigne une couleur à un joueur
 
     /*  RAJOUTER LE NOM DU JOUEUR SUR LA PAGE DANS LA FONCTION couleur */
 
-    static String couleur(Player joueur,String[] colorArray) {
+    public static String couleur(String[] colorArray) {
 
         StdDraw.picture(550 / 2, 600 / 2, "RiskCover.jpg", 540, 590);
 
@@ -116,70 +127,74 @@ public class Menu2 {
             double a = StdDraw.mouseX();
             double b = StdDraw.mouseY();
 
+            for (int i =0; i<Main.Risk.playersList.size();i++) {
+
             // bleu
             if (a > 29 && a < 171 && b > 259 && b < 301) {
                 if (StdDraw.isMousePressed()) {
                     if(colorArray[0] != null) {
                         System.out.println("Couleur bleue choisie");
-                        joueur.setPlayerColor(Color.blue);
+                        Main.Risk.playersList.get(i).setPlayerColor(Color.blue);
                         return "bleu";
                     }
                 }
             }
             // rouge
-            if (a > 29 && a < 171 && b > 179 && b < 221) {
+            else if (a > 29 && a < 171 && b > 179 && b < 221) {
                 if (StdDraw.isMousePressed()) {
                     if(colorArray[1] != null) {
                         System.out.println("Couleur rouge choisie");
-                        joueur.setPlayerColor(Color.red);
+                        Main.Risk.playersList.get(i).setPlayerColor(Color.red);
                         return "rouge";
                     }
                 }
             }
             // vert
-            if (a > 29 && a < 171 && b > 99 && b < 141) {
+            else if (a > 29 && a < 171 && b > 99 && b < 141) {
                 if (StdDraw.isMousePressed()) {
                     if (colorArray[2] != null) {
                         System.out.println("Couleur verte choisie");
-                        joueur.setPlayerColor(Color.green);
+                        Main.Risk.playersList.get(i).setPlayerColor(Color.green);
                         return "vert";
                     }
                 }
             }
             // magenta
-            if (a > 379 && a < 521 && b > 259 && b < 301) {
+            else if (a > 379 && a < 521 && b > 259 && b < 301) {
                 if (StdDraw.isMousePressed()) {
                     if (colorArray[3] != null) {
                         System.out.println("Couleur magenta choisie");
-                        joueur.setPlayerColor(Color.magenta);
+                        Main.Risk.playersList.get(i).setPlayerColor(Color.magenta);
                         return "magenta";
                     }
                 }
             }
             // cyan
-            if (a > 379 && a < 521 && b > 179 && b < 221) {
+            else if (a > 379 && a < 521 && b > 179 && b < 221) {
                 if (StdDraw.isMousePressed()) {
                     if (colorArray[4] != null) {
                         System.out.println("Couleur cyan choisie");
-                        joueur.setPlayerColor(Color.cyan);
+                        Main.Risk.playersList.get(i).setPlayerColor(Color.cyan);
                         return "cyan";
                     }
                 }
             }
             // gris
-            if (a > 379 && a < 521 && b > 99 && b < 141) {
+            else if (a > 379 && a < 521 && b > 99 && b < 141) {
                 if (StdDraw.isMousePressed()) {
                     if (colorArray[5] != null) {
                         System.out.println("Couleur gris choisie");
-                        joueur.setPlayerColor(Color.gray);
+                        Main.Risk.playersList.get(i).setPlayerColor(Color.gray);
                         return "gris";
                     }
                 }
             }
         }
+
+
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    /*public static void main(String[] args) throws InterruptedException {
 
         StdDraw.setCanvasSize(550, 600); // Taille de la fenÍtre
         StdDraw.setXscale(0, X_MAX + WIDTH);
@@ -187,6 +202,8 @@ public class Menu2 {
 
         StdDraw.picture(550 / 2, 600 / 2, "RiskCover.jpg", 540, 590);
 
-    }
+    }*/
+
+}
 
 }
