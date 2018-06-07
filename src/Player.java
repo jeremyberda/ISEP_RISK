@@ -73,19 +73,19 @@ public class Player {
     {
         if(begin)//Debut de partie
         {
-            if(Main.Risk.playersList.size() == 2)
+            if(Main.Risk.playersNumber == 2)
             {
                 this.setTroopNumberDeploy(19);
             }
-            else if(Main.Risk.playersList.size() == 3)
+            else if(Main.Risk.playersNumber == 3)
             {
                 this.setTroopNumberDeploy(21);
             }
-            else if(Main.Risk.playersList.size() == 4)
+            else if(Main.Risk.playersNumber == 4)
             {
                 this.setTroopNumberDeploy(20);
             }
-            else if(Main.Risk.playersList.size() == 5)
+            else if(Main.Risk.playersNumber == 5)
             {
                 this.setTroopNumberDeploy(17);
             }

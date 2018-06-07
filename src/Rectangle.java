@@ -21,21 +21,14 @@ public class Rectangle {
         this.territory = territory;
 
 
-        //System.out.println("GET TERRITORY COLOR: " + territory.getOwner().getPlayerColor();
-        System.out.println("PB AVANT");
-
-
 
         //System.out.println("GET OWNER : " + this.territory.getOwner());
         this.color = this.territory.getOwner().getPlayerColor();
-        System.out.println("PB APRES");
     }
 
     //Dessiner rectangle
 
     public void DrawRectangle() {
-        System.out.println("COLOOOOOR : " + this.color);
-        //StdDraw.setPenColor(this.color);
         StdDraw.setPenColor(this.color);
         StdDraw.filledRectangle(this.x,this.y,this.halfWidth,this.halfHeight);
 

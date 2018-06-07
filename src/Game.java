@@ -44,8 +44,6 @@ public class Game {
 
     public void territoriesInitialization() throws InterruptedException {
 
-        System.out.println("GAME OU ESTU ");
-
         // LISTES DES ID DES TERRITOIRES ADJACENTS
 
         //AmÈrique du nord
@@ -184,11 +182,9 @@ public class Game {
         for (int i=0;i<listTerritories.size();i++){
 
             randomTerritoriesList.add(new Integer(i));
+            Main.Risk.listTerritories.get(i).addUnitOnTerritory(new Unit(0,1,6,2,1,2));
             //System.out.print(i);
         }
-
-        //Main.Risk.listTerritories.get(i).getTerritoryID();
-
 
         //Et on mélange la liste
 
@@ -196,14 +192,10 @@ public class Game {
 
         int indexPlayer = 0;
 
-        System.out.println("TAILLE LISTE JOUEURS TAHU : " + this.playersList.size());
 
         for (int i=0;i<listTerritories.size();i++){
 
-            //System.out.println("TEST AVANT");
             this.listTerritories.get(randomTerritoriesList.get(i)).setOwner(this.playersList.get(indexPlayer)); // on définit le propriétaire
-            //System.out.println("TEST APRES");
-            System.out.println("JOUEUR DU TER : " + this.listTerritories.get(randomTerritoriesList.get(i)).getOwner().getPlayerColor());
 
             this.playersList.get(indexPlayer).addTerritory(1); //on ajoute un territoire à sa liste de territoires qu'il possède
 
@@ -297,7 +289,6 @@ public class Game {
             listRectangles.get(i).DrawRectangle();
             Thread.sleep(100);
         }
-        System.out.println("LEN Rect : " + this.listRectangles.size());
 
         /*listTerritories.add(new Territory("Alaska",0,listAlaska));
         listTerritories.add(new Territory("Territoires du N-O",1,listNorthWestTerritory));
