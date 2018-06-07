@@ -34,7 +34,15 @@ public class Game {
         this.playersList = playersList;
     }
 
-    public void territoriesInitialization() {
+    public ArrayList<Rectangle> getListRectangles() {
+        return listRectangles;
+    }
+
+    public void setListRectangles(ArrayList<Rectangle> listRectangles) {
+        this.listRectangles = listRectangles;
+    }
+
+    public void territoriesInitialization() throws InterruptedException {
 
         System.out.println("GAME OU ESTU ");
 
@@ -176,7 +184,7 @@ public class Game {
         for (int i=0;i<listTerritories.size();i++){
 
             randomTerritoriesList.add(new Integer(i));
-            System.out.print(i);
+            //System.out.print(i);
         }
 
         //Main.Risk.listTerritories.get(i).getTerritoryID();
@@ -192,9 +200,9 @@ public class Game {
 
         for (int i=0;i<listTerritories.size();i++){
 
-            System.out.println("TEST AVANT");
+            //System.out.println("TEST AVANT");
             this.listTerritories.get(randomTerritoriesList.get(i)).setOwner(this.playersList.get(indexPlayer)); // on définit le propriétaire
-            System.out.println("TEST APRES");
+            //System.out.println("TEST APRES");
             System.out.println("JOUEUR DU TER : " + this.listTerritories.get(randomTerritoriesList.get(i)).getOwner().getPlayerColor());
 
             this.playersList.get(indexPlayer).addTerritory(1); //on ajoute un territoire à sa liste de territoires qu'il possède
@@ -223,7 +231,7 @@ public class Game {
 
         Rectangle rectAlaska = new Rectangle(65,515,32,17, Alaska);
         Rectangle rectNorthWestTerritory = new Rectangle(170,525,32,17, NorthWestTerritory);
-        System.out.println("CA PASSE ICI?");
+        //System.out.println("CA PASSE ICI?");
         Rectangle rectGreenland = new Rectangle(365,555,32,17, Greenland);
         Rectangle rectQuebec = new Rectangle(300,462,32,17, Quebec);
         Rectangle rectOntario = new Rectangle(225,462,32,17, Ontario);
@@ -282,11 +290,12 @@ public class Game {
 
 
         //listTerritories.addAll(Arrays.asList(Alaska, NorthWestTerritory, Greenland, Quebec, Ontario, Alberta, WesternUnitedStates, EasterUnitedStates,CentralAmerica,Venezuela, Peru, Argentina, Brazil, NorthAfrica, Congo,SouthAfrica, Madagascar, EastAfrica, Egypt, SouthernEurope, NorthernEurope, WesternEurope, GreatBritain, Iceland, Scandinavia, Ukraine, Ural, Siberia, Yakutsk, Irkutsk, Kamchatka, Japan, Mongolia, China, Afghanistan, MiddleEast, India, Siam, Indonesia, WesternAustralia, EasternAustralia, NewGuinea));
-        listRectangles.addAll(Arrays.asList(rectAlaska,rectNorthWestTerritory,rectGreenland,rectQuebec,rectOntario,rectAlberta,rectWesternUnitedStates, rectEasterUnitedStates, rectCentralAmerica, rectVenezuela, rectPeru,rectArgentina,rectBrazil,rectNorthAfrica,rectCongo,rectSouthAfrica,rectMadagascar,rectEastAfrica, rectEgypt,rectSouthernEurope,rectNorthernEurope,rectWesternEurope,rectGreatBritain,rectIceland,rectScandinavia,rectUkraine,rectUkraine,rectUral,rectSiberia,rectYakutsk,rectIrkutsk,rectKamchatka,rectJapan,rectMongolia,rectChina,rectAfghanistan,rectMiddleEast,rectIndia,rectSiam,rectIndonesia,rectWesternAustralia,rectEasternAustralia,rectNewGuinea));
+        listRectangles.addAll(Arrays.asList(rectAlaska,rectNorthWestTerritory,rectGreenland,rectQuebec,rectOntario,rectAlberta,rectWesternUnitedStates, rectEasterUnitedStates, rectCentralAmerica, rectVenezuela, rectPeru,rectArgentina,rectBrazil,rectNorthAfrica,rectCongo,rectSouthAfrica,rectMadagascar,rectEastAfrica, rectEgypt,rectSouthernEurope,rectNorthernEurope,rectWesternEurope,rectGreatBritain,rectIceland,rectScandinavia,rectUkraine,rectUral,rectSiberia,rectYakutsk,rectIrkutsk,rectKamchatka,rectJapan,rectMongolia,rectChina,rectAfghanistan,rectMiddleEast,rectIndia,rectSiam,rectIndonesia,rectWesternAustralia,rectEasternAustralia,rectNewGuinea));
 
         for (int i=0;i<listRectangles.size();i++) {
 
             listRectangles.get(i).DrawRectangle();
+            Thread.sleep(100);
         }
         System.out.println("LEN Rect : " + this.listRectangles.size());
 

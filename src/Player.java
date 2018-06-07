@@ -17,14 +17,15 @@ public class Player {
 
     public ArrayList<Territory> controlledTerritoriesList = new ArrayList<Territory>();
 
-    private Game risk = Main.Risk;
+    //private Game risk = Main.Risk;
 
     // Constructor
 
-    public Player(String name, int idPlayer, Color playerColor) {
+    public Player(String name, int idPlayer) {
         this.name = name;
         this.idPlayer = idPlayer;
-        this.playerColor = playerColor;
+        //
+        // this.playerColor = playerColor;
     }
 
     // verifie si le joueur a perdu, ou pas

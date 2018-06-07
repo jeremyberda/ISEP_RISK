@@ -10,6 +10,7 @@ public class Map {
     public final static float WIDTH = 1f;
 
     private ArrayList<Rectangle> rectangles;
+    private Player player;
 
     public Map(ArrayList<Rectangle> rectangles) {
         this.rectangles = rectangles;
@@ -33,14 +34,14 @@ public class Map {
 
         System.out.println("RECT SIZE DESSINER CERCLES : " + this.rectangles.size());
 
-        for (int i = 0; i < this.rectangles.size(); i++) {
+        /*for (int i = 0; i < this.rectangles.size(); i++) {
             System.out.println("ICI");
             this.rectangles.get(i).DrawRectangle();
-        }
+        }*/
 
         // AMERIQUE DU NORD
         StdDraw.setPenColor(Color.black);
-        StdDraw.text(130,575, "AmÈrique du Nord");
+        StdDraw.text(130,575, "Amérique du Nord");
 
 
         //StdDraw.filledRectangle(65,515,32,17); //Alaska
@@ -78,7 +79,7 @@ public class Map {
         StdDraw.filledRectangle(570,85,32,17); //Afrique du Sud
         StdDraw.filledRectangle(670,65,32,17); //Madagascar
         StdDraw.filledRectangle(630,190,32,17); //Afrique de l'Est
-        StdDraw.filledRectangle(585,258,32,17); //Egypte
+        StdDraw.filledRectangle(585,258,32,17); //Egypte*/
 
 
 
@@ -86,13 +87,13 @@ public class Map {
 
         StdDraw.text(540,560, "Europe");
 
-        StdDraw.filledRectangle(532,360,32,17); //Europe du Sud
+        /*StdDraw.filledRectangle(532,360,32,17); //Europe du Sud
         StdDraw.filledRectangle(530,407,32,17); //Europe du Nord
         StdDraw.filledRectangle(445,325,32,17); //Europe de l'Ouest
         StdDraw.filledRectangle(417,414,32,17); //Grande-Bretagne
         StdDraw.filledRectangle(460,500,32,17); //Islande
         StdDraw.filledRectangle(535,495,32,17); //Scandinavie
-        StdDraw.filledRectangle(630,460,32,17); //Ukraine
+        StdDraw.filledRectangle(630,460,32,17); //Ukraine*/
 
 
 
@@ -100,7 +101,7 @@ public class Map {
 
         StdDraw.text(955,335, "Asie");
 
-        StdDraw.filledRectangle(740,470,32,17); //Oural
+        /*StdDraw.filledRectangle(740,470,32,17); //Oural
         StdDraw.filledRectangle(780,520,32,17); //SibÈrie
         StdDraw.filledRectangle(870,545,32,17); //Yakoutie
         StdDraw.filledRectangle(855,460,32,17); //Tchita
@@ -111,13 +112,13 @@ public class Map {
         StdDraw.filledRectangle(720,390,32,17); //Afghanistan
         StdDraw.filledRectangle(660,310,32,17); //Moyen-Orient
         StdDraw.filledRectangle(780,300,32,17); //Inde
-        StdDraw.filledRectangle(860,260,32,17); //Siam
+        StdDraw.filledRectangle(860,260,32,17); //Siam*/
 
         // Australie
 
         StdDraw.text(825,110, "Australie");
 
-        StdDraw.filledRectangle(870,167,32,17); //IndonÈsie
+        /*StdDraw.filledRectangle(870,167,32,17); //IndonÈsie
         StdDraw.filledRectangle(910,70,32,17); //Australie de l'Ouest
         StdDraw.filledRectangle(1010,100,32,17); //Australie de l'Est
         StdDraw.filledRectangle(970,190,32,17); //Nouvelle-GuinÈe*/
@@ -129,10 +130,11 @@ public class Map {
         Font fontSigns = new Font("Arial", Font.BOLD, 19);
         Font fontTerritories = new Font ("Baskerville Old Face", Font.BOLD, 12);
         Font fontConfirmer = new Font ("Baskerville Old Face", Font.BOLD, 20);
+        Font fontVictoire = new Font ("Baskerville Old Face", Font.BOLD, 90);
 
         StdDraw.setFont(fontTerritories);
 
-        StdDraw.rectangle(1095, 350, 85, 145);//gros rectangle
+        StdDraw.rectangle(1095, 330, 85, 165);//gros rectangle
 
 
         StdDraw.rectangle(1052.5,397.5,42.5,12);
@@ -148,6 +150,8 @@ public class Map {
         StdDraw.rectangle(1095, 220, 85, 15);
         StdDraw.setFont(fontConfirmer);
         StdDraw.text(1095, 220, "Confirmer");
+        StdDraw.text(1095, 185, "Phase suivante");
+
 
 
         //UNITES
